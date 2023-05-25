@@ -14,7 +14,8 @@ class AuthenticationView extends GetView<AuthenticationController> {
         title: const Text('Authentication'),
         centerTitle: true,
       ),
-      body: Center(
+      body:
+      Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -106,26 +107,45 @@ class AuthenticationView extends GetView<AuthenticationController> {
                   ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  if (controller.formKey.currentState!.validate()) {
-                    controller.signIn();
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 5),
-                    textStyle: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    )),
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+              Obx(() => ElevatedButton(
+                    onPressed: () {
+                      if (controller.formKey.currentState!.validate()) {
+                        controller.isRegister.value
+                            ? controller.signUp()
+                            : controller.signIn();
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 100, vertical: 5),
+                        textStyle: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    child: controller.isRegister.value
+                        ? const Text(
+                            'Sign Up',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        : const Text(
+                            'Sign In',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                  )),
               AppSpace.spaceH20,
-              const Text('''Don't have an account ? Sign up '''),
+              Obx(() => InkWell(
+                  onTap: () {
+                    if (controller.isRegister.value) {
+                      controller.auth.value = 'Sign Up';
+                      controller.isRegister.value = false;
+                    } else {
+                      controller.auth.value = 'Sign In';
+                      controller.isRegister.value = true;
+                    }
+                  },
+                  child: Text(
+                      '''Don't have an account ? ${controller.auth.value} '''))),
               AppSpace.spaceH40,
             ],
           ),
