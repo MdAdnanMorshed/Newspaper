@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:newspaper_app/app/data/models/newspaper_model.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -13,10 +14,60 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+      body:
+       Obx((){
+         if(controller.dummyData.isEmpty){
+           return const Center(child: Text('No Data Found!'));
+         }else{
+           return  ListView.builder(
+             itemCount: controller.dummyData.length,
+             itemBuilder: (BuildContext context, int index) {
+               NewsPaperModel data =controller.dummyData[index];
+               return _newsCardWidget(data);
+             },
+           );
+         }
+
+       })
+
+    );
+  }
+
+  _newsCardWidget( NewsPaperModel data) {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+        margin: const EdgeInsets.only(left: 10,right: 10,top: 8),
+        height: 220.0,
+        width: 800,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Colors.grey.withOpacity(0.4),
+        ),
+
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+              margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 1),
+              height: 150.0,
+              width: 800,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey.withOpacity(0.7),
+              ),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(data.url??'',fit: BoxFit.fill,filterQuality: FilterQuality.high,
+
+                  ),
+
+              ),
+            ),
+             Text(data.title??''),
+            const Text('POSTED AT '),
+          ],
         ),
       ),
     );
