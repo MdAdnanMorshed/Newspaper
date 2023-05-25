@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newspaper_app/app/modules/news_details/views/news_details_view.dart';
 import 'package:newspaper_app/app/routes/app_pages.dart';
 
 class NewsCardWidget extends StatelessWidget {

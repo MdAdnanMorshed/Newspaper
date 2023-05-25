@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "435150528694",
+    "project_id": "news-paper-f8644",
+    "storage_bucket": "news-paper-f8644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435150528694:android:cbfbce3d5b03ee01af8617",
+        "android_client_info": {
+          "package_name": "com.adnan.news_app.newspaper_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435150528694-0i1lkcp71tu8gd77la52j2lvr2n2nui4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYUSOoaw-txTtN4-keHiBq-qTIB6-TyFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435150528694-0i1lkcp71tu8gd77la52j2lvr2n2nui4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
