@@ -15,7 +15,7 @@ class NewsRepo {
       if (kDebugMode) {
         print(' url  $url');
         print(' Status Code ${response.statusCode.toString()}');
-        print(' res  ${response.body.toString()}');
+        //print(' res  ${response.body.toString()}');
       }
       return response;
     } on Exception catch (exception) {
