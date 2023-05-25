@@ -16,13 +16,13 @@ class HomeView extends GetView<HomeController> {
       ),
       body:
        Obx((){
-         if(controller.dummyData.isEmpty){
+         if(!controller.isLoadingData.value){
            return const Center(child: Text('No Data Found!'));
          }else{
            return  ListView.builder(
-             itemCount: controller.dummyData.length,
+             itemCount: controller.newsDataList.length,
              itemBuilder: (BuildContext context, int index) {
-               NewsPaperModel data =controller.dummyData[index];
+               NewsPaperModel data =controller.newsDataList[index];
                return _newsCardWidget(data);
              },
            );
@@ -59,8 +59,12 @@ class HomeView extends GetView<HomeController> {
               ),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(data.url??'',fit: BoxFit.fill,filterQuality: FilterQuality.high,
+                  child: Image.network(data.urlToImage??'',fit: BoxFit.fill,filterQuality: FilterQuality.high,
 
+                    errorBuilder: (BuildContext context, Object exception,
+                        StackTrace? stackTrace) {
+                      return const Text('no Image ');
+                    },
                   ),
 
               ),
