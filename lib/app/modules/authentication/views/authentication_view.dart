@@ -11,11 +11,10 @@ class AuthenticationView extends GetView<AuthenticationController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Authentication'),
+        title: Text('Authentication '),
         centerTitle: true,
       ),
-      body:
-      Center(
+      body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,29 +37,6 @@ class AuthenticationView extends GetView<AuthenticationController> {
                   key: controller.formKey,
                   child: Column(
                     children: [
-                      TextFormField(
-                        controller: controller.userNameController,
-                        style: const TextStyle(color: Colors.green),
-                        decoration: const InputDecoration(
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5.0)),
-                              borderSide: BorderSide(color: Colors.blue)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(5.0),
-                              ),
-                              borderSide: BorderSide(color: Colors.blue)),
-                          filled: true,
-                          contentPadding: EdgeInsets.only(
-                              bottom: 10.0, left: 10.0, right: 10.0),
-                          labelText: 'User Full Name',
-                        ),
-                        validator: (val) {
-                          if (val == '') return 'Enter valid email';
-                        },
-                      ),
                       AppSpace.spaceH20,
                       TextFormField(
                         controller: controller.userMailAddressController,
@@ -81,6 +57,9 @@ class AuthenticationView extends GetView<AuthenticationController> {
                               bottom: 10.0, left: 10.0, right: 10.0),
                           labelText: 'User Mail Address',
                         ),
+                        validator: (val) {
+                          if (val == '') return 'Enter valid email';
+                        },
                       ),
                       AppSpace.spaceH20,
                       TextFormField(
@@ -102,6 +81,10 @@ class AuthenticationView extends GetView<AuthenticationController> {
                               bottom: 10.0, left: 10.0, right: 10.0),
                           labelText: 'Password',
                         ),
+                        validator: (val) {
+                          if (val == '' && val!.length < 7)
+                            return 'Enter valid password';
+                        },
                       )
                     ],
                   ),
@@ -109,10 +92,16 @@ class AuthenticationView extends GetView<AuthenticationController> {
               ),
               Obx(() => ElevatedButton(
                     onPressed: () {
+                      print(
+                          'AuthenticationView.build ${controller.isRegister.value}');
                       if (controller.formKey.currentState!.validate()) {
-                        controller.isRegister.value
-                            ? controller.signUp()
-                            : controller.signIn();
+                        if (controller.isRegister.value) {
+                          controller
+                              .signUpByFirebaseAPI(); //controller.signUp()
+                        } else {
+                          controller
+                              .signInByFirebaseAPI(); //controller.signIn();
+                        }
                       }
                     },
                     style: ElevatedButton.styleFrom(

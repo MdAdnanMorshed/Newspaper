@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:newspaper_app/app/data/repositories/news_repo.dart';
 import 'package:newspaper_app/app/routes/app_pages.dart';
 
 class AuthenticationController extends GetxController {
@@ -10,7 +14,6 @@ class AuthenticationController extends GetxController {
 
   final isRegister = true.obs;
   final auth = 'Sign In'.obs;
-
   final formKey = GlobalKey<FormState>();
 
   final userName = '';
@@ -18,6 +21,7 @@ class AuthenticationController extends GetxController {
   final userPass = '';
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -35,6 +39,7 @@ class AuthenticationController extends GetxController {
 
   void increment() => count.value++;
 
+  // working not need now
   signIn() async {
     final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -66,6 +71,7 @@ class AuthenticationController extends GetxController {
     }
   }
 
+  // working not need now
   signUp() async {
     print('AuthenticationController.signUp');
     final userName = userNameController.text;
@@ -97,4 +103,31 @@ class AuthenticationController extends GetxController {
       print(e);
     }
   }
+
+  signInByFirebaseAPI() async {
+    var response = await NewsRepo().signInAuth(
+        userMailAddressController.text, userPasswordController.text);
+    userMailAddressController.clear();
+    userPasswordController.clear();
+    var statusCode = response.statusCode.toString();
+    var data = jsonDecode(response.body);
+    if (statusCode == '200' && statusCode == '201' && statusCode == '202') {
+      var email = data['email'];
+      var idToken = data['idToken'];
+      var isLogged = true;
+      Get.offNamedUntil(Routes.HOME, (route) => false);
+
+    } else {
+      var message = data['error']['message'];
+      var code = data['error']['code'];
+      var isLogged = false;
+      Get.snackbar('Alert', message,
+          backgroundColor: Colors.deepOrange, colorText: Colors.white);
+    }
+  }
+
+  signUpByFirebaseAPI() {
+    NewsRepo().signUpAuth(userMailAddressController.text, userPasswordController.text);
+  }
+
 }
