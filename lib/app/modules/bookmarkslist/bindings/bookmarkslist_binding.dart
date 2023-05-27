@@ -5,8 +5,8 @@ import '../controllers/bookmarkslist_controller.dart';
 class BookmarkslistBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<BookmarkslistController>(
-      () => BookmarkslistController(),
+    Get.lazyPut<BookmarksListController>(
+      () => BookmarksListController(),
     );
   }
 }

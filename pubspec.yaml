@@ -13,6 +13,7 @@ dependencies:
   firebase_core: ^2.13.0
   shared_preferences: ^2.1.1
   shimmer: ^2.0.0
+  cloud_firestore: ^4.7.1
   progress_dialog_null_safe: ^1.0.7
   flutter: 
     sdk: flutter

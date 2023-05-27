@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:newspaper_app/app/data/models/newspaper_model.dart';
 import 'package:newspaper_app/app/data/utils/app_space.dart';
+import 'package:newspaper_app/app/data/utils/dbhelper.dart';
 import 'package:newspaper_app/app/data/utils/shimmer_effect.dart';
 import 'package:newspaper_app/app/routes/app_pages.dart';
 
@@ -141,5 +142,6 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
+
 
 }

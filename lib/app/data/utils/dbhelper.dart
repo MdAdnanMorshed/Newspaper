@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog_null_safe/progress_dialog_null_safe.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DBHelper {
   static DBHelper object = DBHelper._();
 
   DBHelper._();
 
+  static SharedPreferences? localStore;
   static ProgressDialog? pr;
   static dynamic loadingDialog(BuildContext context) {
     pr = ProgressDialog(context);
@@ -39,6 +41,17 @@ class DBHelper {
         ));
     return pr;
   }
+
+   Future<bool>  isLogged()async{
+    print('NewsDetailsView._fetchData >>> ');
+    localStore= await SharedPreferences.getInstance();
+    final  List<String>? items = localStore!.getStringList('items');
+    print('AuthenticationController.signInByFirebaseAPI ${items![2]}');
+
+   return false;
+
+  }
+
 
 /*  /// Local Login Save
   Future<bool> setUserData(loginResponse) async {

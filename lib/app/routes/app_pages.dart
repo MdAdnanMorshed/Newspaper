@@ -34,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BOOKMARKSLIST,
-      page: () => const BookmarkslistView(),
+      page: () => const BookmarksListView(),
       binding: BookmarkslistBinding(),
     ),
   ];
