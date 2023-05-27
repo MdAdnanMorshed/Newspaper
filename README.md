@@ -5,10 +5,10 @@ Project Name : Newspaper App.
 
 ## Getting Started
 
-- [State management  Getx]
-- [flutter architecture : Get CLI Format ]
-- [Local Store : shared_preferences]
-- [Cloud Server : FireStore , Authentication ]
+- State management >>  Getx
+- flutter architecture >> Get CLI Format 
+- Local Store >> shared_preferences
+- Cloud Server >> FireStore , Authentication 
 
 
 A few resources to get :
