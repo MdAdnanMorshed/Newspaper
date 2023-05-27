@@ -32,10 +32,10 @@ A few resources to get :
 
 
 # Screenshot
-<img src="assets/news.jpg" width="30%"><img src="assets/news_details.jpg" width="30%"> 
-<img src="assets/4.jpg" width="30%">
-<img src="assets/news_details.jpg" width="40%">
-<img src="assets/06.jpg" width="40%">
+<img src="assets/news.jpg" width="30%"><img src="assets/news_details.jpg" width="30%">
+<img src="assets/3.jpg" width="30%"><img src="assets/5.jpg" width="30%">
+<img src="assets/67.jpg" width="30%">
+
 
 If you have any questions, please feel free to contact us.
  Engr. Md.adnan Morshed
