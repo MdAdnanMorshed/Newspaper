@@ -29,6 +29,12 @@ A few resources to get :
 - [Project Documentation](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
 - [Project Demo](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
 
+
+
+# Screenshot
+<img src="assets/news.jpg" width="30%"> <img src="assets/github_images/2.jpg" width="30%"> <img src="assets/github_images/4.jpg" width="30%">
+<img src="assets/news_details.jpg" width="40%"> <img src="assets/github_images/06.jpg" width="40%">
+
 If you have any questions, please feel free to contact us.
  Engr. Md.adnan Morshed
  Software engineer 
