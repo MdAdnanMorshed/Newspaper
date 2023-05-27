@@ -5,13 +5,13 @@ Project Name : Newspaper App.
 
 ## Getting Started
 
-State management : Getx
-flutter architecture : Get CLI Format 
-Local Store : shared_preferences
-Cloud Server : FireStore , Authentication 
+- [State management  Getx]
+- [flutter architecture : Get CLI Format ]
+- [Local Store : shared_preferences]
+- [Cloud Server : FireStore , Authentication ]
 
 
-A few resources to get you started if this is your first Flutter project:
+A few resources to get :
 
 - [Project APK ](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
 - [Project Source Code](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
