@@ -1,16 +1,25 @@
 # newspaper_app
 
-A new Flutter project.
+Project Name : Newspaper App.
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+State management : Getx
+flutter architecture : Get CLI Format 
+Local Store : shared_preferences
+Cloud Server : FireStore , Authentication 
+
 
 A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Project APK ](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
+- [Project Source Code](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
+- [Project Documentation](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
+- [Project Demo](https://drive.google.com/drive/folders/1DzM-vb0H6QnMRq4aoryvrTbUzYRddQ7O?usp=share_link)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you have any questions, please feel free to contact us.
+ Engr. Md.adnan Morshed
+ Software engineer 
+ mail : adnanmorshed118@gmail.com 
+ Mobile : 01831679008
