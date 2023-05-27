@@ -1,6 +1,8 @@
 # newspaper_app
 
 Project Name : Newspaper App.
+Dart Version : 2.19.6
+Flutter Version : 3.7.11
 
 
 ## Getting Started
@@ -8,8 +10,17 @@ Project Name : Newspaper App.
 - State management >>  Getx
 - flutter architecture >> Get CLI Format 
 - Local Store >> shared_preferences
-- Cloud Server >> FireStore , Authentication 
+- Cloud Server >> FireStore , Authentication
 
+  list of technologies and libraries used
+  - http:
+  - firebase_auth: ^4.6.1
+  - firebase_core: ^2.13.0
+  - shared_preferences: ^2.1.1
+  - shimmer: ^2.0.0
+  - cloud_firestore: ^4.7.1
+  - progress_dialog_null_safe: ^1.0.7
+  - internet_connection_checker: ^1.0.0+1
 
 A few resources to get :
 
