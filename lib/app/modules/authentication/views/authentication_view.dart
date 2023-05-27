@@ -63,6 +63,7 @@ class AuthenticationView extends GetView<AuthenticationController> {
                       ),
                       AppSpace.spaceH20,
                       TextFormField(
+                        obscureText: true,
                         controller: controller.userPasswordController,
                         style: const TextStyle(color: Colors.green),
                         decoration: const InputDecoration(
