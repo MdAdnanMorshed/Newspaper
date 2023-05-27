@@ -52,6 +52,16 @@ class DBHelper {
 
   }
 
+  Future<String>  userMail()async{
+    print('NewsDetailsView._fetchData >>> ');
+    localStore= await SharedPreferences.getInstance();
+    final  List<String>? items = localStore!.getStringList('items');
+    print('AuthenticationController.signInByFirebaseAPI Mail ${items![0]}');
+
+    return items[0];
+
+  }
+
 
 /*  /// Local Login Save
   Future<bool> setUserData(loginResponse) async {

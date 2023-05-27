@@ -15,6 +15,7 @@ dependencies:
   shimmer: ^2.0.0
   cloud_firestore: ^4.7.1
   progress_dialog_null_safe: ^1.0.7
+  internet_connection_checker: ^1.0.0+1
   flutter: 
     sdk: flutter
 

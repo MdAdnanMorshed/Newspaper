@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,15 +27,17 @@ class NewsDetailsController extends GetxController {
 
   void increment() => count.value++;
 
-  addNewsFormBookMark(NewsPaperModel data) async {
+  addNewsFormBookMark(NewsPaperModel data, userAddress) async {
+    if (kDebugMode) {
+      print(userAddress);
+    }
     final db = FirebaseFirestore.instance;
-    final docRef = db.collection('abc@gmail.com').doc();
+    final docRef = db.collection(userAddress.toString()).doc();
     await docRef.set(data.toJson()).then((value) {
       Get.snackbar('Alert', 'bookmark has successful!',
           backgroundColor: Colors.green, colorText: Colors.white);
     },
         onError: (e) => Get.snackbar('Wrong', 'Error is $e',
             backgroundColor: Colors.red, colorText: Colors.white));
-    //log("Error not added : $e"));
   }
 }

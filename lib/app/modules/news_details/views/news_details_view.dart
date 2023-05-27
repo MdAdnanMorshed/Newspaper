@@ -16,6 +16,9 @@ class NewsDetailsView extends GetView<NewsDetailsController> {
   Widget build(BuildContext context) {
     NewsPaperModel data = Get.arguments;
 
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('News Details'),
@@ -90,9 +93,17 @@ class NewsDetailsView extends GetView<NewsDetailsController> {
                         ),
                         InkWell(
                             onTap: () {
+                                var mail='';
+                              DBHelper.object.userMail().then((value) {
+                                mail=value.toString();
+                              });
 
-                               controller.addNewsFormBookMark(data);
-                             // Get.toNamed(Routes.AUTHENTICATION);
+                              if(mail==''){
+                                 Get.toNamed(Routes.AUTHENTICATION);
+                              }else{
+                                print('NewsDetailsView.build $mail');
+                                controller.addNewsFormBookMark(data,mail);
+                              }
                             },
                             child: CircleAvatar(
                                 radius: 18,
@@ -155,6 +166,5 @@ class NewsDetailsView extends GetView<NewsDetailsController> {
       ),
     );
   }
-
-
+  
 }

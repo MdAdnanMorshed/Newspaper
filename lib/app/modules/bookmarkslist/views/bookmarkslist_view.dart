@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:newspaper_app/app/data/models/newspaper_model.dart';
 import 'package:newspaper_app/app/data/utils/app_space.dart';
+import 'package:newspaper_app/app/data/utils/dbhelper.dart';
 import 'package:newspaper_app/app/data/utils/shimmer_effect.dart';
 import 'package:newspaper_app/app/routes/app_pages.dart';
 
@@ -14,33 +16,39 @@ class BookmarksListView extends GetView<BookmarksListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white.withOpacity(0.9),
-        appBar: AppBar(
-          title: const Text('BookMark List'),
-          centerTitle: true,
-        ),
-        body: StreamBuilder(
-          stream: FirebaseFirestore.instance
-              .collection('abc@gmail.com')
-              .snapshots(),
-          builder: (ctx, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: ShimmerLoading.vListViewLoading(),
-              );
-            }
-            final doc = snapshot.data!.docs;
-            return ListView.builder(
-              itemCount: doc.length,
-              itemBuilder: (BuildContext context, int index) {
-                NewsPaperModel data =
-                    NewsPaperModel.fromJson(doc[index].data());
+      backgroundColor: Colors.white.withOpacity(0.9),
+      appBar: AppBar(
+        title: const Text('BookMark List'),
+        centerTitle: true,
+      ),
+      body: controller.mail.value == ''
+          ? const Center(child: Text('BookMark not Found!'))
+          : StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection(controller.mail.toString())
+                  .snapshots(),
+              builder: (ctx, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: ShimmerLoading.vListViewLoading(),
+                  );
+                }
+                final doc = snapshot.data!.docs;
+                return ListView.builder(
+                  itemCount: doc.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (doc.isEmpty) {
+                      return const Center(child: Text(' BookMark not found!!'));
+                    }
 
-                return _newsCardWidget(data);
+                    NewsPaperModel data =
+                        NewsPaperModel.fromJson(doc[index].data());
+                    return _newsCardWidget(data);
+                  },
+                );
               },
-            );
-          },
-        ));
+            ),
+    );
   }
 
   _newsCardWidget(NewsPaperModel data) {
