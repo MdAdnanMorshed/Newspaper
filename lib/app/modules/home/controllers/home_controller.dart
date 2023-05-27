@@ -4,10 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:newspaper_app/app/data/models/newspaper_model.dart';
 import 'package:newspaper_app/app/data/repositories/news_repo.dart';
+import 'package:newspaper_app/app/data/utils/shimmer_effect.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
-
   final count = 0.obs;
   List dummyData = [].obs;
 
