@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:newspaper_app/app/data/models/newspaper_model.dart';
 import 'package:newspaper_app/app/data/utils/app_space.dart';
+import 'package:newspaper_app/app/data/utils/shimmer_effect.dart';
 import 'package:newspaper_app/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -16,13 +17,35 @@ class HomeView extends GetView<HomeController> {
         appBar: AppBar(
           title: const Text('News Paper'),
           centerTitle: true,
+          actions: [
+            InkWell(
+              onTap: () {
+                print('HomeView.build Logout');
+                Get.offNamedUntil(Routes.AUTHENTICATION, (route) => false);
+              },
+              child: const Icon(Icons.logout),
+            ),
+            AppSpace.spaceW12,
+            InkWell(
+              onTap: () {
+                Get.toNamed(Routes.BOOKMARKSLIST);
+              },
+              child: const Icon(
+                Icons.bookmark,
+                color: Colors.orange,
+                size: 25,
+              ),
+            ),
+            AppSpace.spaceW12,
+          ],
         ),
         body: Obx(() {
           if (!controller.isLoadingData.value) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Center(
+              child: ShimmerLoading.vListViewLoading(),
             );
-          } else {
+          }
+          else {
             if (controller.newsDataList.isEmpty) {
               return const Center(child: Text('No Data Found!'));
             } else {
@@ -118,4 +141,5 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
+
 }
