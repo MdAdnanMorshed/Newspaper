@@ -40,7 +40,8 @@ class HomeView extends GetView<HomeController> {
             AppSpace.spaceW12,
           ],
         ),
-        body: Obx(() {
+        body:
+        Obx(() {
           if (!controller.isLoadingData.value) {
             return Center(
               child: ShimmerLoading.vListViewLoading(),

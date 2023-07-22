@@ -4,6 +4,8 @@ import '../modules/authentication/bindings/authentication_binding.dart';
 import '../modules/authentication/views/authentication_view.dart';
 import '../modules/bookmarkslist/bindings/bookmarkslist_binding.dart';
 import '../modules/bookmarkslist/views/bookmarkslist_view.dart';
+import '../modules/category/bindings/category_binding.dart';
+import '../modules/category/views/category_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/news_details/bindings/news_details_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.BOOKMARKSLIST,
       page: () => const BookmarksListView(),
       binding: BookmarkslistBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORY,
+      page: () => const CategoryView(),
+      binding: CategoryBinding(),
     ),
   ];
 }
