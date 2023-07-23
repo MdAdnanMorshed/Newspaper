@@ -53,7 +53,7 @@ class DBHelper {
   }
 
   Future<String>  userMail()async{
-    print('NewsDetailsView._fetchData >>> ');
+
     localStore= await SharedPreferences.getInstance();
     final  List<String>? items = localStore!.getStringList('items');
     print('AuthenticationController.signInByFirebaseAPI Mail ${items![0]}');
@@ -62,48 +62,4 @@ class DBHelper {
 
   }
 
-
-/*  /// Local Login Save
-  Future<bool> setUserData(loginResponse) async {
-    print('userId >>> ${loginResponse['user_id']}');
-    print('auth_status >>> ${loginResponse['auth_status']}');
-
-    //var is_logged_in = loginResponse['auth_status'];
-    var userId = loginResponse['user_id'];
-    var token = loginResponse['token'];
-
-    is_logged_in.$ = true;
-    is_logged_in.save();
-
-    user_id.$ = userId;
-    user_id.save();
-
-    access_token.$ = token;
-    access_token.save();
-
-    print('Local Store UserId With Is Logged ');
-    print('${is_logged_in.$}');
-    print('${user_id.$}');
-
-
-    return true;
-  }
-
-  /// Local login clear
-  clearUserData() {
-    is_logged_in.$ = false;
-    is_logged_in.save();
-    access_token.$ = "";
-    access_token.save();
-    user_id.$ = '';
-    user_id.save();
-    user_name.$ = "";
-    user_name.save();
-    user_name.$ = "";
-    user_name.save();
-    user_phone.$ = "";
-    user_phone.save();
-    avatar_original.$ = "";
-    avatar_original.save();
-  }*/
 }
