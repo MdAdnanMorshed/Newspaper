@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-
 import 'package:http/http.dart' as http;
 
 class NewsRepo {
@@ -10,7 +8,6 @@ class NewsRepo {
     var baseUrl = 'https://newsapi.org/v2/';
     var apiKey = 'd91efeb4def9438abb5ca114e97d3de6';
     Uri url = Uri.parse('${baseUrl}everything?q=bitcoin&apiKey=$apiKey');
-
     try {
       final response = await http.get(url, headers: {
         "Accept": "application/json",
@@ -32,7 +29,6 @@ class NewsRepo {
     var baseUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:';
     var apiKey = 'AIzaSyBYUSOoaw-txTtN4-keHiBq-qTIB6-TyFY';
     Uri url = Uri.parse('${baseUrl}signInWithPassword?key=$apiKey');
-
     try {
       final response = await http.post(url,
           body: jsonEncode({
@@ -47,7 +43,6 @@ class NewsRepo {
         print(' url  $url');
         print(' Status Code ${response.statusCode.toString()}');
         print(' res  ${jsonDecode(response.body.toString())}');
-
       }
       return response;
     } on Exception catch (exception) {
