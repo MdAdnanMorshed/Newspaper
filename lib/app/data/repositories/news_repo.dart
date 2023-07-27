@@ -51,7 +51,6 @@ class NewsRepo {
       throw Exception(error);
     }
   }
-
   Future signUpAuth(String email, String password) async {
     var baseUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:';
     var apiKey = 'AIzaSyBYUSOoaw-txTtN4-keHiBq-qTIB6-TyFY';
@@ -78,5 +77,4 @@ class NewsRepo {
       throw Exception(error);
     }
   }
-
 }
