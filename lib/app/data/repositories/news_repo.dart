@@ -55,7 +55,6 @@ class NewsRepo {
     var baseUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:';
     var apiKey = 'AIzaSyBYUSOoaw-txTtN4-keHiBq-qTIB6-TyFY';
     Uri url = Uri.parse('${baseUrl}signUp?key=$apiKey');
-
     try {
       final response = await http.post(url,
           body: jsonEncode({
