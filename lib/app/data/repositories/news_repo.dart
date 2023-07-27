@@ -76,4 +76,5 @@ class NewsRepo {
       throw Exception(error);
     }
   }
+
 }
